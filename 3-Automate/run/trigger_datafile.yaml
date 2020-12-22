@@ -1,9 +1,9 @@
 TriggerDemoShutNoShutBgp:
     source:
-      class: genie-bootcamp.3-Automate.triggers.shutnoshut.bgp.nxos.shutnoshut.ShutNoShutBgp
+      class: testing-bootcamp.3-Automate.triggers.shutnoshut.bgp.nxos.shutnoshut.ShutNoShutBgp
     devices: ['uut']
 
 #TriggerDemoShutNoShutBgpV2:
 #    source:
-#      class: genie-bootcamp.3-Automate.triggers.shutnoshut.bgp.nxos.shutnoshutv2.ShutNoShutBgp
+#      class: testing-bootcamp.3-Automate.triggers.shutnoshut.bgp.nxos.shutnoshutv2.ShutNoShutBgp
 #    devices: ['uut']

@@ -4,7 +4,7 @@ from ats import aetest
 
 ### Code replaced by using Verification!
 ## Uncomment me
-#from genie.utils.diff import Diff
+from genie.utils.diff import Diff
 ###
 from genie.harness.base import Trigger
 
@@ -37,7 +37,7 @@ class ShutNoShutBgp(Trigger):
         self.bgp_id = output['bgp_tag']
         ### Code replaced by using Verification!
         # Uncomment me
-        #self.initial_output = output
+        self.initial_output = output
         ###
 
     @aetest.test
@@ -74,8 +74,8 @@ no shutdown'''.format(id=self.bgp_id))
     def verify_recover(self, uut, wait_time=20):
         '''Figure out if bgp is configured and up'''
         ### Code replaced by using Verification!
-        #log.info('Sleeping for {w}'.format(w=wait_time))
-        #time.sleep(wait_time)
+        log.info('Sleeping for {w}'.format(w=wait_time))
+        time.sleep(wait_time)
         ###
 
         # Check if there is a bgp_id
@@ -93,9 +93,9 @@ no shutdown'''.format(id=self.bgp_id))
 
         ### Code replaced by using Verification!
         # Uncomment me
-        #diff = Diff(self.initial_output, output)
-        #diff.findDiff()
-        #if diff.diffs:
-        #    self.failed('Unexpected change has happened to our device state '
-        #                '\n{d}'.format(d=diff))
+        diff = Diff(self.initial_output, output)
+        diff.findDiff()
+        if diff.diffs:
+            self.failed('Unexpected change has happened to our device state '
+                        '\n{d}'.format(d=diff))
         ### 

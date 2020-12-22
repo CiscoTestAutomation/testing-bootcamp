@@ -78,16 +78,12 @@ That's it! Our re-usable testcase is now running. With the ``--liveview`` field,
 
 Right now our trigger verify only what is expected. The next step is - how do we verify also the unexpected as we've seen in the previous manual step?
 
-Try this by uncommenting the comments in the trigger code.
+Try this by uncommenting the comments in the trigger code. Once uncommented, rerun the above command.
+
+
+## Verifications
 
 And this is also a perfect place to introduce our Verification concept:
-
-```python
-# in job file
-gRun(verification_uids=['Verify_BgpProcessVrfAll.uut'],
-     trigger_uids=['TriggerDemoShutNoShutBgp'],
-     trigger_datafile='trigger_datafile.yaml')
-```
 
 The code that was uncommented works, instead of just verifying the shut/no shut
 of Bgp it will verify the other keys in that same show command, to make sure
@@ -110,9 +106,25 @@ They are to be added dynamically either a Global Verification or Local verificat
 - Global: Run before and after every Trigger
 - Local: Run before and after specific Trigger
 
-Let's modify our job file to now call Verify_Bgp
-
 | Note: Any of the verification defined on this page can be used: https://pubhub.devnetcloud.com/media/testing-feature-browser/docs/#/verifications
+
+
+```python
+# in job file Use the second block of gRun, command out the first one.
+gRun(verification_uids=['Verify_BgpProcessVrfAll.uut'],
+     trigger_uids=['TriggerDemoShutNoShutBgp'],
+     trigger_datafile='trigger_datafile.yaml')
+```
+
+```bash
+pyats run job job.py --testbed-file ../../tb.yaml --liveview --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/3-automate/two/
+```
+
+# Models Verification
+
+Lastly, we can use Ops
+
+Let's modify our job file to now call Verify_Bgp (Last block). This will use the bgp model feature, which will learn all commands relatives to Bgp and learn it and use it as comparison.
 
 ```python
 # in job file
@@ -125,6 +137,8 @@ gRun(verification_uids=['Verify_Bgp.uut'],
 ```bash
 pyats run job job.py --testbed-file ../../tb.yaml --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/3-automate/three/
 ```
+
+| Note: Any of the models defined on this page can be used: https://pubhub.devnetcloud.com/media/testing-feature-browser/docs/#/models
 
 We've seen a few ways to run this trigger, all are accomplished using only libraries:
 - pick and choose what we need
