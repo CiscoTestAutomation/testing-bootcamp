@@ -1,0 +1,18 @@
+BlitzTestcase: 
+    groups: ['test']
+    description: Modifying the testcase description 
+    source:
+        pkg: genie.libs.sdk
+        class: triggers.blitz.blitz.Blitz
+    test_sections:
+        - section:
+            - parse:
+                device: PE1
+                command: show interfaces Tunnel7
+                include:
+                    - contains('queues')
+            - execute:
+                device: PE1
+                command: show interfaces Tunnel7
+                include:
+                    - queues.*

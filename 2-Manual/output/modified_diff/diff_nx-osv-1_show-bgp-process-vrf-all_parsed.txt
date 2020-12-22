@@ -1,0 +1,22 @@
+--- initial/nx-osv-1_show-bgp-process-vrf-all_parsed.txt
++++ modified/nx-osv-1_show-bgp-process-vrf-all_parsed.txt
++bgp_protocol_state: shutdown
+-bgp_protocol_state: running
++bytes_used: 100
+-bytes_used: 200
++num_attr_entries: 1
+-num_attr_entries: 2
+vrf:
+ default:
+  address_family:
+   ipv4 unicast:
+    peers:
+     1:
++      active_peers: 0
+-      active_peers: 1
++      paths: 1
+-      paths: 2
++      routes: 1
+-      routes: 2
++  num_established_peers: 0
+-  num_established_peers: 1

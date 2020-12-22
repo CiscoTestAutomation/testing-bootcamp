@@ -1,0 +1,10 @@
+TriggerShutNoShutInterface:
+    source:
+      class: training.genie-bootcamp.4-solutions.shutnoshut.ShutNoShutInterface
+    devices: ['uut']
+    interface: GigabitEthernet1
+
+#TriggerDemoShutNoShutBgpV2:
+#    source:
+#      class: genie-bootcamp.3-Automate.triggers.shutnoshut.bgp.nxos.shutnoshutv2.ShutNoShutBgp
+#    devices: ['uut']

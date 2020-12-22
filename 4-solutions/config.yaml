@@ -1,0 +1,9 @@
+devices:
+    uut:
+        1:
+          jinja2_config: configuration.j2
+          jinja2_arguments:
+            interface: GigabitEthernet1
+            description: Interface To Shutdown
+          sleep: 3
+          invalid: ['overlaps', '(.*inval.*)']

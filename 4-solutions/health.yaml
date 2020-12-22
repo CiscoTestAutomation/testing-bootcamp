@@ -1,0 +1,65 @@
+vars:
+  device: uut              # target device
+  default_dir: "bootflash:" # storage where core is generated
+
+pyats_health_processors:
+  source:
+    pkg: genie.libs.health
+    class: health.Health
+
+  test_sections:
+    - cpu:
+        - api:
+            processor: pre
+            device: "%{vars.device}"
+            function: get_platform_cpu_load
+            arguments:
+              processes: ['SSH.*']
+            include:
+              - "<= 90"
+
+    - memory:
+        - api:
+            processor: both
+            device: "%{vars.device}"
+            function: get_platform_memory_usage
+            arguments:
+              processes: ['SSH.*']
+            include:
+              - "<= 90"
+
+    - traceback:
+        - api:
+            device: "%{vars.device}"
+            function: get_platform_logging
+            arguments:
+              keywords:
+                - 'TRACEBACK'    # keyword to catch
+              num_of_logs: True  # return number of hit lines
+            include:
+              - "== 0"           # check if no hit
+
+    - core:
+        - api:
+            alias: get_core
+            device: "%{vars.device}"
+            function: get_platform_core
+            arguments:
+              default_dir: "%{vars.default_dir}"
+              num_of_cores: True         # return number of core files
+              decode: True               # enable to decode core
+              remote_device: jump_host   # remote device where coping core file to
+              remote_path: /tmp          # path on remote device where core is saved
+              remote_via: scp            # connection name for remote device in testbed yaml
+              vrf: Mgmt-intf             # vrf name to use scp to remote device
+              archive: True              # attache decode result in pyATS job archive
+            include:
+              - "== 0"
+        - run_condition:
+            if: '%VARIABLES{get_core} == passed'
+            function: passed
+            actions:                        # below runs only when core found
+              - execute:
+                  device: "%{vars.device}"
+                  command: "delete /force %{vars.default_dir}core/*core*.gz" # delete all core files
+

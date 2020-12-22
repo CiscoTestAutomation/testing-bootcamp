@@ -1,0 +1,9 @@
+--- snap1/csr1000v-1_show-version_parsed.txt
++++ snap2/csr1000v-1_show-version_parsed.txt
+ version:
+- chassis_sn: 9KPJ5WDVKMA
++ chassis_sn: wqeqweqew
+  disks:
+   bootflash:.:
+-   disk_size: 7774207
++   disk_size: 7774

@@ -1,0 +1,313 @@
+configure:
+  commands:
+    end:
+      new_state: exec
+    line console 0:
+      new_state: configure_line
+    no logging console: ''
+  prompt: switch(config)#
+configure_line:
+  commands:
+    end:
+      new_state: execute
+    exec-timeout 0: ''
+  prompt: switch(config-line)#
+connect:
+  commands:
+    ? ''
+    : new_state: execute
+  preface: 'Trying mock_device ...
+
+    Connected to mock_device.
+
+    Escape character is ''^]''.'
+  prompt: ''
+execute:
+  commands:
+    config term:
+      new_state: configure
+    show bgp all: "For address family: IPv4 Unicast\r\n\r\nBGP table version is 166,\
+      \ local router ID is 10.1.1.1\r\nStatus codes: s suppressed, d damped, h history,\
+      \ * valid, > best, i - internal, \r\n              r RIB-failure, S Stale, m\
+      \ multipath, b backup-path, f RT-Filter, \r\n              x best-external,\
+      \ a additional-path, c RIB-compressed, \r\n              t secondary path, L\
+      \ long-lived-stale,\r\nOrigin codes: i - IGP, e - EGP, ? - incomplete\r\nRPKI\
+      \ validation codes: V valid, I invalid, N Not found\r\n\r\n     Network    \
+      \      Next Hop            Metric LocPrf Weight Path\r\n *>   10.11.11.11/32\
+      \   0.0.0.0                  0         32768 i\r\n\r\nFor address family: IPv6\
+      \ Unicast\r\n\r\n\r\nFor address family: IPv4 Multicast\r\n\r\n\r\nFor address\
+      \ family: L2VPN E-VPN\r\n\r\n\r\nFor address family: MVPNv4 Unicast\r\n\r\n\r\
+      \nFor address family: MVPNv6 Unicast"
+    show bgp all cluster-ids: "Global cluster-id: 10.1.1.1 (configured: 0.0.0.0)\r\
+      \nBGP client-to-client reflection:         Configured    Used\r\n  all (inter-cluster\
+      \ and intra-cluster): ENABLED\r\n  intra-cluster:                         ENABLED\
+      \       ENABLED\r\n\r\nList of cluster-ids:\r\nCluster-id     #-neighbors C2C-rfl-CFG\
+      \ C2C-rfl-USE"
+    show bgp all detail: "For address family: IPv4 Unicast\r\n\r\nBGP routing table\
+      \ entry for 10.11.11.11/32, version 2\r\n  Paths: (1 available, best #1, table\
+      \ default)\r\n  Not advertised to any peer\r\n  Refresh Epoch 1\r\n  Local\r\
+      \n    0.0.0.0 from 0.0.0.0 (10.1.1.1)\r\n      Origin IGP, metric 0, localpref\
+      \ 100, weight 32768, valid, sourced, local, best\r\n      rx pathid: 0, tx pathid:\
+      \ 0x0\r\n\r\nFor address family: IPv6 Unicast\r\n\r\n\r\nFor address family:\
+      \ IPv4 Multicast\r\n\r\n\r\nFor address family: L2VPN E-VPN\r\n\r\n\r\nFor address\
+      \ family: MVPNv4 Unicast\r\n\r\n\r\nFor address family: MVPNv6 Unicast"
+    show bgp all neighbors: "For address family: IPv4 Unicast\r\nBGP neighbor is 10.2.2.2,\
+      \  remote AS 65000, internal link\r\n  BGP version 4, remote router ID 0.0.0.0\r\
+      \n  BGP state = Idle, down for 00:00:37\r\n  Neighbor sessions:\r\n    0 active,\
+      \ is not multisession capable (disabled)\r\n    Stateful switchover support\
+      \ enabled: NO\r\n  Do log neighbor state changes (via global configuration)\r\
+      \n  Default minimum time between advertisement runs is 0 seconds\r\n\r\n  Address\
+      \ tracking is enabled, the RIB does have a route to 10.2.2.2\r\n  Route to peer\
+      \ address reachability Up: 2; Down: 0\r\n    Last notification 5d06h\r\n  Connections\
+      \ established 82; dropped 82\r\n  Last reset 00:00:37, due to Peer closed the\
+      \ session\r\n  Interface associated: (none) (peering address NOT in same link)\r\
+      \n  Transport(tcp) path-mtu-discovery is enabled\r\n  Graceful-Restart is disabled\r\
+      \n  SSO is disabled\r\n  No active TCP connection\r\n\r\n\r\nFor address family:\
+      \ IPv6 Unicast\r\n\r\nFor address family: IPv4 Multicast\r\n\r\nFor address\
+      \ family: L2VPN E-VPN\r\n\r\nFor address family: MVPNv4 Unicast\r\n\r\nFor address\
+      \ family: MVPNv6 Unicast"
+    show bgp all neighbors 10.2.2.2 advertised-routes: "For address family: IPv4 Unicast\r\
+      \n\r\nTotal number of prefixes 0"
+    show bgp all neighbors 10.2.2.2 policy: ' Neighbor: 10.2.2.2, Address-Family:
+      IPv4 Unicast'
+    show bgp all neighbors 10.2.2.2 received-routes: "For address family: IPv4 Unicast\r\
+      \n% Inbound soft reconfiguration not enabled on 10.2.2.2"
+    show bgp all neighbors 10.2.2.2 routes: "For address family: IPv4 Unicast\r\n\r\
+      \nTotal number of prefixes 0"
+    show bgp all neighbors | i BGP neighbor: BGP neighbor is 10.2.2.2,  remote AS
+      65000, internal link
+    show bgp summary: "% Command accepted but obsolete, unreleased or unsupported;\
+      \ see documentation.\r\nBGP router identifier 10.1.1.1, local AS number 65000\r\
+      \nBGP table version is 166, main routing table version 166\r\n1 network entries\
+      \ using 248 bytes of memory\r\n1 path entries using 136 bytes of memory\r\n\
+      1/1 BGP path/bestpath attribute entries using 280 bytes of memory\r\n0 BGP route-map\
+      \ cache entries using 0 bytes of memory\r\n0 BGP filter-list cache entries using\
+      \ 0 bytes of memory\r\nBGP using 664 total bytes of memory\r\nBGP activity 36/35\
+      \ prefixes, 84/83 paths, scan interval 60 secs\r\n\r\nNeighbor        V    \
+      \       AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\r\n10.2.2.2\
+      \        4        65000       0       0        1    0    0 00:00:36 Idle"
+    show interfaces: "GigabitEthernet1 is up, line protocol is up \r\n  Hardware is\
+      \ CSR vNIC, address is 5e00.0000.0000 (bia 5e00.0000.0000)\r\n  Internet address\
+      \ is 10.255.8.122/16\r\n  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec,\
+      \ \r\n     reliability 255/255, txload 1/255, rxload 1/255\r\n  Encapsulation\
+      \ ARPA, loopback not set\r\n  Keepalive set (10 sec)\r\n  Full Duplex, 1000Mbps,\
+      \ link type is auto, media type is Virtual\r\n  output flow-control is unsupported,\
+      \ input flow-control is unsupported\r\n  ARP type: ARPA, ARP Timeout 04:00:00\r\
+      \n  Last input 00:00:00, output 00:01:09, output hang never\r\n  Last clearing\
+      \ of \"show interface\" counters never\r\n  Input queue: 0/375/0/0 (size/max/drops/flushes);\
+      \ Total output drops: 0\r\n  Queueing strategy: fifo\r\n  Output queue: 0/40\
+      \ (size/max)\r\n  5 minute input rate 0 bits/sec, 0 packets/sec\r\n  5 minute\
+      \ output rate 0 bits/sec, 0 packets/sec\r\n     226238 packets input, 16092320\
+      \ bytes, 0 no buffer\r\n     Received 0 broadcasts (0 IP multicasts)\r\n   \
+      \  0 runts, 0 giants, 0 throttles \r\n     0 input errors, 0 CRC, 0 frame, 0\
+      \ overrun, 0 ignored\r\n     0 watchdog, 0 multicast, 0 pause input\r\n    \
+      \ 82920 packets output, 7470544 bytes, 0 underruns\r\n     0 output errors,\
+      \ 0 collisions, 0 interface resets\r\n     15165 unknown protocol drops\r\n\
+      \     0 babbles, 0 late collision, 0 deferred\r\n     0 lost carrier, 0 no carrier,\
+      \ 0 pause output\r\n     0 output buffer failures, 0 output buffers swapped\
+      \ out\r\nGigabitEthernet2 is up, line protocol is up \r\n  Hardware is CSR vNIC,\
+      \ address is fa16.3ebe.e48e (bia fa16.3ebe.e48e)\r\n  Internet address is 10.0.1.1/24\r\
+      \n  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, \r\n     reliability 255/255,\
+      \ txload 1/255, rxload 1/255\r\n  Encapsulation ARPA, loopback not set\r\n \
+      \ Keepalive set (10 sec)\r\n  Full Duplex, 1000Mbps, link type is auto, media\
+      \ type is Virtual\r\n  output flow-control is unsupported, input flow-control\
+      \ is unsupported\r\n  ARP type: ARPA, ARP Timeout 04:00:00\r\n  Last input 00:00:00,\
+      \ output 00:00:00, output hang never\r\n  Last clearing of \"show interface\"\
+      \ counters never\r\n  Input queue: 0/375/0/0 (size/max/drops/flushes); Total\
+      \ output drops: 0\r\n  Queueing strategy: fifo\r\n  Output queue: 0/40 (size/max)\r\
+      \n  5 minute input rate 0 bits/sec, 0 packets/sec\r\n  5 minute output rate\
+      \ 0 bits/sec, 0 packets/sec\r\n     82594 packets input, 7354066 bytes, 0 no\
+      \ buffer\r\n     Received 0 broadcasts (0 IP multicasts)\r\n     0 runts, 0\
+      \ giants, 0 throttles \r\n     0 input errors, 0 CRC, 0 frame, 0 overrun, 0\
+      \ ignored\r\n     0 watchdog, 0 multicast, 0 pause input\r\n     67732 packets\
+      \ output, 6746956 bytes, 0 underruns\r\n     0 output errors, 0 collisions,\
+      \ 0 interface resets\r\n     7583 unknown protocol drops\r\n     0 babbles,\
+      \ 0 late collision, 0 deferred\r\n     0 lost carrier, 0 no carrier, 0 pause\
+      \ output\r\n     0 output buffer failures, 0 output buffers swapped out\r\n\
+      GigabitEthernet3 is up, line protocol is up \r\n  Hardware is CSR vNIC, address\
+      \ is fa16.3e07.71e5 (bia fa16.3e07.71e5)\r\n  Internet address is 10.0.2.1/24\r\
+      \n  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, \r\n     reliability 255/255,\
+      \ txload 1/255, rxload 1/255\r\n  Encapsulation ARPA, loopback not set\r\n \
+      \ Keepalive set (10 sec)\r\n  Full Duplex, 1000Mbps, link type is auto, media\
+      \ type is Virtual\r\n  output flow-control is unsupported, input flow-control\
+      \ is unsupported\r\n  ARP type: ARPA, ARP Timeout 04:00:00\r\n  Last input 00:00:03,\
+      \ output 00:00:00, output hang never\r\n  Last clearing of \"show interface\"\
+      \ counters never\r\n  Input queue: 0/375/0/0 (size/max/drops/flushes); Total\
+      \ output drops: 0\r\n  Queueing strategy: fifo\r\n  Output queue: 0/40 (size/max)\r\
+      \n  5 minute input rate 0 bits/sec, 0 packets/sec\r\n  5 minute output rate\
+      \ 0 bits/sec, 0 packets/sec\r\n     60332 packets input, 5991282 bytes, 0 no\
+      \ buffer\r\n     Received 0 broadcasts (0 IP multicasts)\r\n     0 runts, 0\
+      \ giants, 0 throttles \r\n     0 input errors, 0 CRC, 0 frame, 0 overrun, 0\
+      \ ignored\r\n     0 watchdog, 0 multicast, 0 pause input\r\n     90160 packets\
+      \ output, 8191145 bytes, 0 underruns\r\n     0 output errors, 0 collisions,\
+      \ 0 interface resets\r\n     7583 unknown protocol drops\r\n     0 babbles,\
+      \ 0 late collision, 0 deferred\r\n     0 lost carrier, 0 no carrier, 0 pause\
+      \ output\r\n     0 output buffer failures, 0 output buffers swapped out\r\n\
+      Loopback0 is up, line protocol is up \r\n  Hardware is Loopback\r\n  Internet\
+      \ address is 10.1.1.1/32\r\n  MTU 1514 bytes, BW 8000000 Kbit/sec, DLY 5000\
+      \ usec, \r\n     reliability 255/255, txload 1/255, rxload 1/255\r\n  Encapsulation\
+      \ LOOPBACK, loopback not set\r\n  Keepalive set (10 sec)\r\n  Last input 00:01:09,\
+      \ output never, output hang never\r\n  Last clearing of \"show interface\" counters\
+      \ never\r\n  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops:\
+      \ 0\r\n  Queueing strategy: fifo\r\n  Output queue: 0/0 (size/max)\r\n  5 minute\
+      \ input rate 0 bits/sec, 0 packets/sec\r\n  5 minute output rate 0 bits/sec,\
+      \ 0 packets/sec\r\n     0 packets input, 0 bytes, 0 no buffer\r\n     Received\
+      \ 0 broadcasts (0 IP multicasts)\r\n     0 runts, 0 giants, 0 throttles \r\n\
+      \     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\r\n    \
+      \ 16368 packets output, 822492 bytes, 0 underruns\r\n     0 output errors, 0\
+      \ collisions, 0 interface resets\r\n     0 unknown protocol drops\r\n     0\
+      \ output buffer failures, 0 output buffers swapped out\r\nLoopback1 is up, line\
+      \ protocol is up \r\n  Hardware is Loopback\r\n  Internet address is 10.11.11.11/32\r\
+      \n  MTU 1514 bytes, BW 8000000 Kbit/sec, DLY 5000 usec, \r\n     reliability\
+      \ 255/255, txload 1/255, rxload 1/255\r\n  Encapsulation LOOPBACK, loopback\
+      \ not set\r\n  Keepalive set (10 sec)\r\n  Last input 00:01:09, output never,\
+      \ output hang never\r\n  Last clearing of \"show interface\" counters never\r\
+      \n  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0\r\n\
+      \  Queueing strategy: fifo\r\n  Output queue: 0/0 (size/max)\r\n  5 minute input\
+      \ rate 0 bits/sec, 0 packets/sec\r\n  5 minute output rate 0 bits/sec, 0 packets/sec\r\
+      \n     0 packets input, 0 bytes, 0 no buffer\r\n     Received 0 broadcasts (0\
+      \ IP multicasts)\r\n     0 runts, 0 giants, 0 throttles \r\n     0 input errors,\
+      \ 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\r\n     16368 packets output,\
+      \ 822492 bytes, 0 underruns\r\n     0 output errors, 0 collisions, 0 interface\
+      \ resets\r\n     0 unknown protocol drops\r\n     0 output buffer failures,\
+      \ 0 output buffers swapped out"
+    show interfaces accounting: "GigabitEthernet1 \r\n                Protocol   \
+      \ Pkts In   Chars In   Pkts Out  Chars Out\r\n                   Other     160749\
+      \   11926152       2797     167820\r\n                      IP      96399  \
+      \  8357433      80123    7302724\r\n                     ARP     130422    5526648\
+      \       2797     167820\r\n                    IPv6         22       1836  \
+      \        0          0\r\nGigabitEthernet2 \r\n                Protocol    Pkts\
+      \ In   Chars In   Pkts Out  Chars Out\r\n                   Other      15197\
+      \    3292882       2758     165480\r\n                      IP      74913  \
+      \  5700218      64974    6581476\r\n                     ARP         31    \
+      \   1860       2758     165480\r\nGigabitEthernet3 \r\n                Protocol\
+      \    Pkts In   Chars In   Pkts Out  Chars Out\r\n                   Other  \
+      \    15196    3292822       2757     165420\r\n                      IP    \
+      \  52652    4337494      87403    8025725\r\n                     ARP      \
+      \   30       1800       2757     165420\r\nLoopback0 \r\n                Protocol\
+      \    Pkts In   Chars In   Pkts Out  Chars Out\r\n                      IP  \
+      \    16368     822492      16368     822492\r\nLoopback1 \r\n              \
+      \  Protocol    Pkts In   Chars In   Pkts Out  Chars Out\r\n                \
+      \      IP      16368     822492      16368     822492"
+    show ip bgp all dampening parameters: "For address family: IPv4 Unicast\r\n\r\n\
+      % dampening not enabled for base\r\n\r\nFor address family: IPv6 Unicast\r\n\
+      \r\n% dampening not enabled for base\r\n\r\nFor address family: IPv4 Multicast\r\
+      \n\r\n% dampening not enabled for base\r\n\r\nFor address family: L2VPN E-VPN\r\
+      \n\r\n% dampening not enabled for base\r\n\r\nFor address family: MVPNv4 Unicast\r\
+      \n\r\n% dampening not enabled for base\r\n\r\nFor address family: MVPNv6 Unicast\r\
+      \n\r\n% dampening not enabled for base"
+    'show ip bgp template peer-policy ': No templates configured
+    'show ip bgp template peer-session ': No templates configured
+    show ip interface: "GigabitEthernet1 is up, line protocol is up\r\n  Internet\
+      \ address is 10.255.8.122/16\r\n  Broadcast address is 255.255.255.255\r\n \
+      \ Address determined by DHCP\r\n  MTU is 1500 bytes\r\n  Helper address is not\
+      \ set\r\n  Directed broadcast forwarding is disabled\r\n  Outgoing Common access\
+      \ list is not set \r\n  Outgoing access list is not set\r\n  Inbound Common\
+      \ access list is not set \r\n  Inbound  access list is not set\r\n  Proxy ARP\
+      \ is enabled\r\n  Local Proxy ARP is disabled\r\n  Security level is default\r\
+      \n  Split horizon is enabled\r\n  ICMP redirects are always sent\r\n  ICMP unreachables\
+      \ are always sent\r\n  ICMP mask replies are never sent\r\n  IP fast switching\
+      \ is enabled\r\n  IP Flow switching is disabled\r\n  IP CEF switching is enabled\r\
+      \n  IP CEF switching turbo vector\r\n  IP Null turbo vector\r\n  Associated\
+      \ unicast routing topologies:\r\n        Topology \"base\", operation state\
+      \ is UP\r\n  IP multicast fast switching is enabled\r\n  IP multicast distributed\
+      \ fast switching is disabled\r\n  IP route-cache flags are Fast, CEF\r\n  Router\
+      \ Discovery is disabled\r\n  IP output packet accounting is disabled\r\n  IP\
+      \ access violation accounting is disabled\r\n  TCP/IP header compression is\
+      \ disabled\r\n  RTP/IP header compression is disabled\r\n  Probe proxy name\
+      \ replies are disabled\r\n  Policy routing is disabled\r\n  Network address\
+      \ translation is disabled\r\n  BGP Policy Mapping is disabled\r\n  Input features:\
+      \ MCI Check\r\n  IPv4 WCCP Redirect outbound is disabled\r\n  IPv4 WCCP Redirect\
+      \ inbound is disabled\r\n  IPv4 WCCP Redirect exclude is disabled\r\nGigabitEthernet2\
+      \ is up, line protocol is up\r\n  Internet address is 10.0.1.1/24\r\n  Broadcast\
+      \ address is 255.255.255.255\r\n  Address determined by non-volatile memory\r\
+      \n  MTU is 1500 bytes\r\n  Helper address is not set\r\n  Directed broadcast\
+      \ forwarding is disabled\r\n  Multicast reserved groups joined: 224.0.0.5 224.0.0.6\r\
+      \n  Outgoing Common access list is not set \r\n  Outgoing access list is not\
+      \ set\r\n  Inbound Common access list is not set \r\n  Inbound  access list\
+      \ is not set\r\n  Proxy ARP is enabled\r\n  Local Proxy ARP is disabled\r\n\
+      \  Security level is default\r\n  Split horizon is enabled\r\n  ICMP redirects\
+      \ are always sent\r\n  ICMP unreachables are always sent\r\n  ICMP mask replies\
+      \ are never sent\r\n  IP fast switching is enabled\r\n  IP Flow switching is\
+      \ disabled\r\n  IP CEF switching is enabled\r\n  IP CEF switching turbo vector\r\
+      \n  IP Null turbo vector\r\n  Associated unicast routing topologies:\r\n   \
+      \     Topology \"base\", operation state is UP\r\n  IP multicast fast switching\
+      \ is enabled\r\n  IP multicast distributed fast switching is disabled\r\n  IP\
+      \ route-cache flags are Fast, CEF\r\n  Router Discovery is disabled\r\n  IP\
+      \ output packet accounting is disabled\r\n  IP access violation accounting is\
+      \ disabled\r\n  TCP/IP header compression is disabled\r\n  RTP/IP header compression\
+      \ is disabled\r\n  Probe proxy name replies are disabled\r\n  Policy routing\
+      \ is disabled\r\n  Network address translation is disabled\r\n  BGP Policy Mapping\
+      \ is disabled\r\n  Input features: MCI Check\r\n  IPv4 WCCP Redirect outbound\
+      \ is disabled\r\n  IPv4 WCCP Redirect inbound is disabled\r\n  IPv4 WCCP Redirect\
+      \ exclude is disabled\r\nGigabitEthernet3 is up, line protocol is up\r\n  Internet\
+      \ address is 10.0.2.1/24\r\n  Broadcast address is 255.255.255.255\r\n  Address\
+      \ determined by non-volatile memory\r\n  MTU is 1500 bytes\r\n  Helper address\
+      \ is not set\r\n  Directed broadcast forwarding is disabled\r\n  Multicast reserved\
+      \ groups joined: 224.0.0.5 224.0.0.6\r\n  Outgoing Common access list is not\
+      \ set \r\n  Outgoing access list is not set\r\n  Inbound Common access list\
+      \ is not set \r\n  Inbound  access list is not set\r\n  Proxy ARP is enabled\r\
+      \n  Local Proxy ARP is disabled\r\n  Security level is default\r\n  Split horizon\
+      \ is enabled\r\n  ICMP redirects are always sent\r\n  ICMP unreachables are\
+      \ always sent\r\n  ICMP mask replies are never sent\r\n  IP fast switching is\
+      \ enabled\r\n  IP Flow switching is disabled\r\n  IP CEF switching is enabled\r\
+      \n  IP CEF switching turbo vector\r\n  IP Null turbo vector\r\n  Associated\
+      \ unicast routing topologies:\r\n        Topology \"base\", operation state\
+      \ is UP\r\n  IP multicast fast switching is enabled\r\n  IP multicast distributed\
+      \ fast switching is disabled\r\n  IP route-cache flags are Fast, CEF\r\n  Router\
+      \ Discovery is disabled\r\n  IP output packet accounting is disabled\r\n  IP\
+      \ access violation accounting is disabled\r\n  TCP/IP header compression is\
+      \ disabled\r\n  RTP/IP header compression is disabled\r\n  Probe proxy name\
+      \ replies are disabled\r\n  Policy routing is disabled\r\n  Network address\
+      \ translation is disabled\r\n  BGP Policy Mapping is disabled\r\n  Input features:\
+      \ MCI Check\r\n  IPv4 WCCP Redirect outbound is disabled\r\n  IPv4 WCCP Redirect\
+      \ inbound is disabled\r\n  IPv4 WCCP Redirect exclude is disabled\r\nLoopback0\
+      \ is up, line protocol is up\r\n  Internet address is 10.1.1.1/32\r\n  Broadcast\
+      \ address is 255.255.255.255\r\n  Address determined by non-volatile memory\r\
+      \n  MTU is 1514 bytes\r\n  Helper address is not set\r\n  Directed broadcast\
+      \ forwarding is disabled\r\n  Multicast reserved groups joined: 224.0.0.5\r\n\
+      \  Outgoing Common access list is not set \r\n  Outgoing access list is not\
+      \ set\r\n  Inbound Common access list is not set \r\n  Inbound  access list\
+      \ is not set\r\n  Proxy ARP is enabled\r\n  Local Proxy ARP is disabled\r\n\
+      \  Security level is default\r\n  Split horizon is enabled\r\n  ICMP redirects\
+      \ are always sent\r\n  ICMP unreachables are always sent\r\n  ICMP mask replies\
+      \ are never sent\r\n  IP fast switching is enabled\r\n  IP Flow switching is\
+      \ disabled\r\n  IP CEF switching is enabled\r\n  IP CEF switching turbo vector\r\
+      \n  IP Null turbo vector\r\n  Associated unicast routing topologies:\r\n   \
+      \     Topology \"base\", operation state is UP\r\n  IP multicast fast switching\
+      \ is enabled\r\n  IP multicast distributed fast switching is disabled\r\n  IP\
+      \ route-cache flags are Fast, CEF\r\n  Router Discovery is disabled\r\n  IP\
+      \ output packet accounting is disabled\r\n  IP access violation accounting is\
+      \ disabled\r\n  TCP/IP header compression is disabled\r\n  RTP/IP header compression\
+      \ is disabled\r\n  Probe proxy name replies are disabled\r\n  Policy routing\
+      \ is disabled\r\n  Network address translation is disabled\r\n  BGP Policy Mapping\
+      \ is disabled\r\n  Input features: MCI Check\r\n  IPv4 WCCP Redirect outbound\
+      \ is disabled\r\n  IPv4 WCCP Redirect inbound is disabled\r\n  IPv4 WCCP Redirect\
+      \ exclude is disabled\r\nLoopback1 is up, line protocol is up\r\n  Internet\
+      \ address is 10.11.11.11/32\r\n  Broadcast address is 255.255.255.255\r\n  Address\
+      \ determined by non-volatile memory\r\n  MTU is 1514 bytes\r\n  Helper address\
+      \ is not set\r\n  Directed broadcast forwarding is disabled\r\n  Outgoing Common\
+      \ access list is not set \r\n  Outgoing access list is not set\r\n  Inbound\
+      \ Common access list is not set \r\n  Inbound  access list is not set\r\n  Proxy\
+      \ ARP is enabled\r\n  Local Proxy ARP is disabled\r\n  Security level is default\r\
+      \n  Split horizon is enabled\r\n  ICMP redirects are always sent\r\n  ICMP unreachables\
+      \ are always sent\r\n  ICMP mask replies are never sent\r\n  IP fast switching\
+      \ is enabled\r\n  IP Flow switching is disabled\r\n  IP CEF switching is enabled\r\
+      \n  IP CEF switching turbo vector\r\n  IP Null turbo vector\r\n  Associated\
+      \ unicast routing topologies:\r\n        Topology \"base\", operation state\
+      \ is UP\r\n  IP multicast fast switching is enabled\r\n  IP multicast distributed\
+      \ fast switching is disabled\r\n  IP route-cache flags are Fast, CEF\r\n  Router\
+      \ Discovery is disabled\r\n  IP output packet accounting is disabled\r\n  IP\
+      \ access violation accounting is disabled\r\n  TCP/IP header compression is\
+      \ disabled\r\n  RTP/IP header compression is disabled\r\n  Probe proxy name\
+      \ replies are disabled\r\n  Policy routing is disabled\r\n  Network address\
+      \ translation is disabled\r\n  BGP Policy Mapping is disabled\r\n  Input features:\
+      \ MCI Check\r\n  IPv4 WCCP Redirect outbound is disabled\r\n  IPv4 WCCP Redirect\
+      \ inbound is disabled\r\n  IPv4 WCCP Redirect exclude is disabled"
+    show ipv6 interface: ''
+    show version: ''
+    show vrf detail: ''
+    show vrf detail | inc \(VRF: ''
+    term length 0: ''
+    term width 0: ''
+  prompt: switch#

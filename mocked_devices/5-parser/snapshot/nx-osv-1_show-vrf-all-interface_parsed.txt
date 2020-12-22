@@ -1,0 +1,602 @@
+{
+  "Ethernet2/1": {
+    "interface": "Ethernet2/1",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/10": {
+    "interface": "Ethernet2/10",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/11": {
+    "interface": "Ethernet2/11",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/12": {
+    "interface": "Ethernet2/12",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/13": {
+    "interface": "Ethernet2/13",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/14": {
+    "interface": "Ethernet2/14",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/15": {
+    "interface": "Ethernet2/15",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/16": {
+    "interface": "Ethernet2/16",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/17": {
+    "interface": "Ethernet2/17",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/18": {
+    "interface": "Ethernet2/18",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/19": {
+    "interface": "Ethernet2/19",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/2": {
+    "interface": "Ethernet2/2",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/20": {
+    "interface": "Ethernet2/20",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/21": {
+    "interface": "Ethernet2/21",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/22": {
+    "interface": "Ethernet2/22",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/23": {
+    "interface": "Ethernet2/23",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/24": {
+    "interface": "Ethernet2/24",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/25": {
+    "interface": "Ethernet2/25",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/26": {
+    "interface": "Ethernet2/26",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/27": {
+    "interface": "Ethernet2/27",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/28": {
+    "interface": "Ethernet2/28",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/29": {
+    "interface": "Ethernet2/29",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/3": {
+    "interface": "Ethernet2/3",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/30": {
+    "interface": "Ethernet2/30",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/31": {
+    "interface": "Ethernet2/31",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/32": {
+    "interface": "Ethernet2/32",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/33": {
+    "interface": "Ethernet2/33",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/34": {
+    "interface": "Ethernet2/34",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/35": {
+    "interface": "Ethernet2/35",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/36": {
+    "interface": "Ethernet2/36",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/37": {
+    "interface": "Ethernet2/37",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/38": {
+    "interface": "Ethernet2/38",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/39": {
+    "interface": "Ethernet2/39",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/4": {
+    "interface": "Ethernet2/4",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/40": {
+    "interface": "Ethernet2/40",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/41": {
+    "interface": "Ethernet2/41",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/42": {
+    "interface": "Ethernet2/42",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/43": {
+    "interface": "Ethernet2/43",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/44": {
+    "interface": "Ethernet2/44",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/45": {
+    "interface": "Ethernet2/45",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/46": {
+    "interface": "Ethernet2/46",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/47": {
+    "interface": "Ethernet2/47",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/48": {
+    "interface": "Ethernet2/48",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/5": {
+    "interface": "Ethernet2/5",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/6": {
+    "interface": "Ethernet2/6",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/7": {
+    "interface": "Ethernet2/7",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/8": {
+    "interface": "Ethernet2/8",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet2/9": {
+    "interface": "Ethernet2/9",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/1": {
+    "interface": "Ethernet3/1",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/10": {
+    "interface": "Ethernet3/10",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/11": {
+    "interface": "Ethernet3/11",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/12": {
+    "interface": "Ethernet3/12",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/13": {
+    "interface": "Ethernet3/13",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/14": {
+    "interface": "Ethernet3/14",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/15": {
+    "interface": "Ethernet3/15",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/16": {
+    "interface": "Ethernet3/16",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/17": {
+    "interface": "Ethernet3/17",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/18": {
+    "interface": "Ethernet3/18",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/19": {
+    "interface": "Ethernet3/19",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/2": {
+    "interface": "Ethernet3/2",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/20": {
+    "interface": "Ethernet3/20",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/21": {
+    "interface": "Ethernet3/21",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/22": {
+    "interface": "Ethernet3/22",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/23": {
+    "interface": "Ethernet3/23",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/24": {
+    "interface": "Ethernet3/24",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/25": {
+    "interface": "Ethernet3/25",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/26": {
+    "interface": "Ethernet3/26",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/27": {
+    "interface": "Ethernet3/27",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/28": {
+    "interface": "Ethernet3/28",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/29": {
+    "interface": "Ethernet3/29",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/3": {
+    "interface": "Ethernet3/3",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/30": {
+    "interface": "Ethernet3/30",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/31": {
+    "interface": "Ethernet3/31",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/32": {
+    "interface": "Ethernet3/32",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/33": {
+    "interface": "Ethernet3/33",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/34": {
+    "interface": "Ethernet3/34",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/35": {
+    "interface": "Ethernet3/35",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/36": {
+    "interface": "Ethernet3/36",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/37": {
+    "interface": "Ethernet3/37",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/38": {
+    "interface": "Ethernet3/38",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/39": {
+    "interface": "Ethernet3/39",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/4": {
+    "interface": "Ethernet3/4",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/40": {
+    "interface": "Ethernet3/40",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/41": {
+    "interface": "Ethernet3/41",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/42": {
+    "interface": "Ethernet3/42",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/43": {
+    "interface": "Ethernet3/43",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/44": {
+    "interface": "Ethernet3/44",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/45": {
+    "interface": "Ethernet3/45",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/46": {
+    "interface": "Ethernet3/46",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/47": {
+    "interface": "Ethernet3/47",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/48": {
+    "interface": "Ethernet3/48",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/5": {
+    "interface": "Ethernet3/5",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/6": {
+    "interface": "Ethernet3/6",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/7": {
+    "interface": "Ethernet3/7",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/8": {
+    "interface": "Ethernet3/8",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Ethernet3/9": {
+    "interface": "Ethernet3/9",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "Null0": {
+    "interface": "Null0",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "loopback0": {
+    "interface": "loopback0",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "loopback1": {
+    "interface": "loopback1",
+    "origin": "--",
+    "vrf_id": "1",
+    "vrf_name": "default"
+  },
+  "mgmt0": {
+    "interface": "mgmt0",
+    "origin": "--",
+    "vrf_id": "2",
+    "vrf_name": "management"
+  }
+}

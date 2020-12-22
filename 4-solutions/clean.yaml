@@ -1,0 +1,82 @@
+cleaners:
+  DeviceClean:
+    module: genie.libs.clean
+    devices: [nx-osv-1, csr1000v-1]
+
+devices:
+  nx-osv-1:
+    #images:
+    #  - /auto/release/path/csr1000v-universalk9.03.10.00.S.153-3.S-ext.SPA.bin
+
+    device_recovery:
+      break_count: 5
+      console_activity_pattern: "\\.\\.\\.\\."
+      timeout: 600
+      recovery_password: "lab"
+      golden_image:
+        - bootflash:/golden_image.bin
+
+    connect:
+
+    write_erase:
+
+    apply_configuration:
+      file: bootflash:/golden
+      config_timeout: 90
+      config_stable_time: 10
+
+    order:
+      - 'connect'
+      - 'write_erase'
+      - 'apply_configuration'
+
+  csr1000v-1:
+    #images:
+    #  - /auto/release/path/csr1000v-universalk9.03.10.00.S.153-3.S-ext.SPA.bin
+
+    device_recovery:
+      break_count: 5
+      console_activity_pattern: "\\.\\.\\.\\."
+      timeout: 600
+      recovery_password: "lab"
+      golden_image:
+        - bootflash:/golden_image.bin
+
+    connect:
+
+      #copy_to_linux:
+      #  destination:
+      #    directory: /auto/path/images/
+      #  overwrite: True
+      #  copy_attempts: 3
+      #  append_hostname: True
+
+      #copy_to_device:
+      #  origin:
+      #    hostname: the-tftp-server
+      #  destination:
+      #    directory: 'bootflash:'
+      #  protocol: ftp
+      #  overwrite: True
+      #  verify_num_images: False
+      #  check_file_stability: True
+      #  min_free_space_percent: 50
+
+      #change_boot_variable:
+      #  write_memory: True
+
+    write_erase:
+
+      #reload:
+      #  check_modules:
+      #    check: False
+
+    apply_configuration:
+      file: bootflash:/golden
+      config_timeout: 90
+      config_stable_time: 10
+
+    order:
+      - 'connect'
+      - 'write_erase'
+      - 'apply_configuration'

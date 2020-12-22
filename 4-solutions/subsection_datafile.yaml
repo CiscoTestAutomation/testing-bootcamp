@@ -1,0 +1,12 @@
+setup:
+
+    sections:
+
+      connect:
+        method: genie.harness.commons.connect
+
+      configure:
+        method: genie.harness.commons.configure
+
+    order: ['connect', 'configure']
+

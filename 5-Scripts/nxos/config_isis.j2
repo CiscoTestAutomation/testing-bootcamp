@@ -1,0 +1,27 @@
+{# Documentation
+    Required inputs:
+        process_id: Router ISIS process ID
+        net_address: Net Address
+        loopback_interface: Loopback interface
+        interface_name: Interface to configure
+        metric: Metric value
+        address_family: Address-family to be configured
+        metric_style: Metric style
+#}
+router isis {{ process_id }}
+    net {{ net_address }}
+    address-family {{ address_family }}
+        metric-style {{ metric_style }}
+    !
+    interface {{ loopback_interface }}
+        passive
+        address-family {{ address_family }}
+        !
+    !
+    interface {{ interface_name }}
+        point-to-point
+        address-family {{ address_family }}
+            metric {{ metric }}
+        !
+    !
+!

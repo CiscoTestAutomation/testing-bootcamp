@@ -1,0 +1,30 @@
+[2019-04-28 16:25:34,326] +++ nx-osv-1 logfile snapshot/connection_nx-osv-1.txt +++
+[2019-04-28 16:25:34,327] +++ Unicon plugin nxos +++
+[2019-04-28 16:25:34,331] +++ connection to spawn: telnet 172.25.192.90 17002, id: 4651200240 +++
+[2019-04-28 16:25:34,333] connection to nx-osv-1
+Trying 172.25.192.90...
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+nx-osv-1(config-router)# 
+[2019-04-28 16:25:35,071] +++ initializing handle +++
+end
+nx-osv-1# 
+[2019-04-28 16:25:35,186] +++ nx-osv-1: executing command 'term length 0' +++
+term length 0
+nx-osv-1# 
+[2019-04-28 16:25:35,299] +++ nx-osv-1: executing command 'term width 511' +++
+term width 511
+nx-osv-1# 
+[2019-04-28 16:25:35,405] +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
+terminal session-timeout 0
+nx-osv-1# 
+[2019-04-28 16:25:35,518] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# no logging console
+nx-osv-1(config)# line console
+nx-osv-1(config-console)# exec-timeout 0
+nx-osv-1(config-console)# terminal width 511
+nx-osv-1(config-console)# end
+nx-osv-1# 

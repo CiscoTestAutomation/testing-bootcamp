@@ -1,0 +1,98 @@
+[2019-04-23 17:23:37,205] +++ nx-osv-1 logfile recovered/connection_nx-osv-1.txt +++
+[2019-04-23 17:23:37,205] +++ Unicon plugin nxos +++
+[2019-04-23 17:23:37,209] +++ connection to spawn: telnet 172.25.192.90 17002, id: 4446362928 +++
+[2019-04-23 17:23:37,210] connection to nx-osv-1
+Trying 172.25.192.90...
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+nx-osv-1(config-router)# 
+[2019-04-23 17:23:38,126] +++ initializing handle +++
+end
+nx-osv-1# 
+[2019-04-23 17:23:38,314] +++ nx-osv-1: executing command 'term length 0' +++
+term length 0
+nx-osv-1# 
+[2019-04-23 17:23:38,495] +++ nx-osv-1: executing command 'term width 511' +++
+term width 511
+nx-osv-1# 
+[2019-04-23 17:23:38,672] +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
+terminal session-timeout 0
+nx-osv-1# 
+[2019-04-23 17:23:38,863] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# no logging console
+nx-osv-1(config)# line console
+nx-osv-1(config-console)# exec-timeout 0
+nx-osv-1(config-console)# terminal width 511
+nx-osv-1(config-console)# end
+nx-osv-1# 
+[2019-04-23 17:23:40,520] +++ nx-osv-1: executing command 'show bgp process vrf all' +++
+show bgp process vrf all
+
+BGP Process Information
+BGP Process ID                 : 8610
+BGP Protocol Started, reason:  : configuration
+BGP Protocol Tag               : 65000
+BGP Protocol State             : Running
+BGP MMODE                      : Not Initialized
+BGP Memory State               : OK
+BGP asformat                   : asplain
+
+BGP attributes information
+Number of attribute entries    : 2
+HWM of attribute entries       : 2
+Bytes used by entries          : 200
+Entries pending delete         : 0
+HWM of entries pending delete  : 0
+BGP paths per attribute HWM    : 1
+BGP AS path entries            : 0
+Bytes used by AS path entries  : 0
+
+Information regarding configured VRFs:
+
+BGP Information for VRF default
+VRF Id                         : 1
+VRF state                      : UP
+Router-ID                      : 10.2.2.2
+Configured Router-ID           : 10.2.2.2
+Confed-ID                      : 0
+Cluster-ID                     : 0.0.0.0
+No. of configured peers        : 1
+No. of pending config peers    : 0
+No. of established peers       : 1
+VRF RD                         : Not configured
+
+    Information for address family IPv4 Unicast in VRF default
+    Table Id                   : 1
+    Table state                : UP
+    Peers      Active-peers    Routes     Paths      Networks   Aggregates
+    1          1               2          2          1          0         
+
+    Redistribution                
+        None
+
+    Wait for IGP convergence is not configured
+
+
+    Nexthop trigger-delay
+        critical 3000 ms
+        non-critical 10000 ms
+
+    Information for address family IPv6 Unicast in VRF default
+    Table Id                   : 80000001
+    Table state                : UP
+    Peers      Active-peers    Routes     Paths      Networks   Aggregates
+    0          0               0          0          0          0         
+
+    Redistribution                
+        None
+
+    Wait for IGP convergence is not configured
+
+
+    Nexthop trigger-delay
+        critical 3000 ms
+        non-critical 10000 ms
+nx-osv-1# 

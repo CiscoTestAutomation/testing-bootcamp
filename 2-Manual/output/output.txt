@@ -1,0 +1,176 @@
+> genie parse "show bgp process vrf all" --testbed-file ../tb.yaml --output initial --device nx-osv-1
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.04it/s]
++==============================================================================+
+| Genie Parse Summary for nx-osv-1                                             |
++==============================================================================+
+|  Connected to nx-osv-1                                                       |
+|  -  Log: initial/connection_nx-osv-1.txt                                     |
+|------------------------------------------------------------------------------|
+|  Parsed command 'show bgp process vrf all'                                   |
+|  -  Parsed structure: initial/nx-osv-1_show-bgp-process-vrf-all_parsed.txt   |
+|  -  Device Console:   initial/nx-osv-1_show-bgp-process-vrf-all_console.txt  |
+|------------------------------------------------------------------------------|
+
+> telnet 172.25.192.90 17002
+Trying 172.25.192.90...
+
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+nx-osv-1#
+nx-osv-1# show bgp process vrf all
+
+BGP Process Information
+BGP Process ID                 : 8610
+BGP Protocol Started, reason:  : configuration
+BGP Protocol Tag               : 65000
+BGP Protocol State             : Running
+BGP MMODE                      : Not Initialized
+BGP Memory State               : OK
+BGP asformat                   : asplain
+
+BGP attributes information
+Number of attribute entries    : 2
+HWM of attribute entries       : 2
+Bytes used by entries          : 200
+Entries pending delete         : 0
+HWM of entries pending delete  : 0
+BGP paths per attribute HWM    : 1
+BGP AS path entries            : 0
+Bytes used by AS path entries  : 0
+
+Information regarding configured VRFs:
+
+BGP Information for VRF default
+VRF Id                         : 1
+VRF state                      : UP
+Router-ID                      : 10.2.2.2
+Configured Router-ID           : 10.2.2.2
+Confed-ID                      : 0
+Cluster-ID                     : 0.0.0.0
+No. of configured peers        : 1
+No. of pending config peers    : 0
+No. of established peers       : 1
+VRF RD                         : Not configured
+
+    Information for address family IPv4 Unicast in VRF default
+    Table Id                   : 1
+    Table state                : UP
+    Peers      Active-peers    Routes     Paths      Networks   Aggregates
+    1          1               2          2          1          0
+
+    Redistribution
+        None
+
+    Wait for IGP convergence is not configured
+
+
+    Nexthop trigger-delay
+        critical 3000 ms
+        non-critical 10000 ms
+
+    Information for address family IPv6 Unicast in VRF default
+    Table Id                   : 80000001
+    Table state                : UP
+    Peers      Active-peers    Routes     Paths      Networks   Aggregates
+    0          0               0          0          0          0
+
+    Redistribution
+        None
+
+    Wait for IGP convergence is not configured
+
+
+    Nexthop trigger-delay
+        critical 3000 ms
+        non-critical 10000 ms
+
+nx-osv-1# conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# router bgp 65000
+nx-osv-1(config-router)# shutdown
+nx-osv-1(config-router)#
+telnet> q
+Connection closed.
+
+> genie parse "show bgp process vrf all" --testbed-file ../tb.yaml --output modified --device nx-osv-1
+100%|███████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.36it/s]
++==============================================================================+
+| Genie Parse Summary for nx-osv-1                                             |
++==============================================================================+
+|  Connected to nx-osv-1                                                       |
+|  -  Log: modified/connection_nx-osv-1.txt                                    |
+|------------------------------------------------------------------------------|
+|  Parsed command 'show bgp process vrf all'                                   |
+|  -  Parsed structure: modified/nx-osv-1_show-bgp-process-vrf-all_parsed.txt  |
+|  -  Device Console:   modified/nx-osv-1_show-bgp-process-vrf-all_console.txt |
+|------------------------------------------------------------------------------|
+
+> genie diff initial modified --output modified_diff
+1it [00:00, 256.34it/s]
++==============================================================================+
+| Genie Diff Summary between directories initial/ and modified/                |
++==============================================================================+
+|  File: nx-osv-1_show-bgp-process-vrf-all_parsed.txt                          |
+|   - Diff can be found at modified_diff/diff_nx-osv-1_show-bgp-process-vrf-   |
+| all_parsed.txt                                                               |
+|------------------------------------------------------------------------------|
+
+> cat modified_diff/diff_nx-osv-1_show-bgp-process-vrf-all_parsed.txt
+--- initial/nx-osv-1_show-bgp-process-vrf-all_parsed.txt
++++ modified/nx-osv-1_show-bgp-process-vrf-all_parsed.txt
++bgp_protocol_state: shutdown
+-bgp_protocol_state: running
++bytes_used: 100
+-bytes_used: 200
++num_attr_entries: 1
+-num_attr_entries: 2
+vrf:
+ default:
+  address_family:
+   ipv4 unicast:
+    peers:
+     1:
++      active_peers: 0
+-      active_peers: 1
++      paths: 1
+-      paths: 2
++      routes: 1
+-      routes: 2
++  num_established_peers: 0
+
+> telnet 172.25.192.90 17002
+Trying 172.25.192.90...
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+nx-osv-1#
+nx-osv-1# conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# router bgp 65000
+nx-osv-1(config-router)# no shutdown
+nx-osv-1(config-router)#
+telnet> q
+Connection closed.
+
+> genie parse "show bgp process vrf all" --testbed-file ../tb.yaml --output recovered --device nx-osv-1
+100%|███████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.36it/s]
++==============================================================================+
+| Genie Parse Summary for nx-osv-1                                             |
++==============================================================================+
+|  Connected to nx-osv-1                                                       |
+|  -  Log: recovered/connection_nx-osv-1.txt                                   |
+|------------------------------------------------------------------------------|
+|  Parsed command 'show bgp process vrf all'                                   |
+|  -  Parsed structure: recovered/nx-osv-1_show-bgp-process-vrf-all_parsed.txt |
+|  -  Device Console:   recovered/nx-osv-1_show-bgp-process-vrf-all_console.txt |
+|------------------------------------------------------------------------------|
+
+> genie diff initial recovered --output recovered_diff
+1it [00:00, 543.51it/s]
++==============================================================================+
+| Genie Diff Summary between directories initial/ and recovered/               |
++==============================================================================+
+|  File: nx-osv-1_show-bgp-process-vrf-all_parsed.txt                          |
+|   - Identical                                                                |
+|------------------------------------------------------------------------------|

@@ -1,0 +1,48 @@
+testbed: 
+  name: 'MyTestbed'
+
+devices:
+  nx-osv-1:
+      type: 'router'
+      os: 'nxos'
+      alias: 'helper'
+      credentials:
+        default:
+          password: admin
+          username: admin
+      connections:
+          cli:
+              protocol: telnet
+              ip: "172.25.192.90"
+              port: 17010
+
+  csr1000v-1:
+      type: 'router'
+      os: "iosxe"
+      alias: 'uut'
+      credentials:
+        default:
+          password: cisco
+          username: cisco
+      connections:
+          a:
+              protocol: telnet
+              ip: "172.25.192.90"
+              port: 17008
+
+  jump_host:
+    type: jump_host
+    os: linux
+    connections:
+      defaults:
+        class: unicon.Unicon
+        via: cli
+      cli:
+        protocol: ssh
+        ip: 172.25.195.129
+        arguments:
+          learn_hostname: True
+        ssh_options: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+      scp:
+        protocol: ssh
+        ip: 10.1.20.150
