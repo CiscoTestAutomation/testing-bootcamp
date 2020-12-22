@@ -162,19 +162,19 @@ state of the device.
 Can we go one level deeper?
 
 ```
-1. pyats learn bgp --testbed-file $VIRTUAL_ENV/testing-bootcamp/tb.yaml --output bgp_initial --device nx-osv-1 --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/initial/record/
+1. pyats learn bgp --testbed-file $VIRTUAL_ENV/testing-bootcamp/tb.yaml --output bgp_initial --device nx-osv-1 --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/initial_bgp/
 
 2. router bgp <bgp id>
       shutdown 
 
-3. pyats learn bgp --testbed-file $VIRTUAL_ENV/testing-bootcamp/tb.yaml --output bgp_modified --device nx-osv-1  --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/modified/record/
+3 pyats learn bgp --testbed-file $VIRTUAL_ENV/testing-bootcamp/tb.yaml --output bgp_initial --device nx-osv-1 --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/modified_bgp
 
 4. pyats diff bgp_initial bgp_modified --output bgp_modified_diff
 
 5. router bgp <bgp id>
       no shutdown 
 
-6. pyats learn bgp --testbed-file $VIRTUAL_ENV/testing-bootcamp/tb.yaml --output bgp_recovered --device nx-osv-1 --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/reverted/record/
+6. pyats learn bgp --testbed-file $VIRTUAL_ENV/testing-bootcamp/tb.yaml --output bgp_initial --device nx-osv-1 --replay $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/recovered_bgp//
 
 7. pyats diff bgp_initial bgp_recovered --output bgp_recovered_diff
 
