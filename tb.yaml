@@ -14,7 +14,7 @@ devices:
           cli:
               protocol: telnet
               ip: "172.25.192.90"
-              port: 17006
+              port: 17010
 
   csr1000v-1:
       type: 'router'
@@ -25,10 +25,10 @@ devices:
           password: cisco
           username: cisco
       connections:
-          a:
+          cli:
               protocol: telnet
               ip: "172.25.192.90"
-              port: 17004
+              port: 17008
 
   jump_host:
     type: jump_host

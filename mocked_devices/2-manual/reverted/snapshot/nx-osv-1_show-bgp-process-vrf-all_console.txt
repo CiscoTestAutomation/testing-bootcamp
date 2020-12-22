@@ -1,34 +1,4 @@
-
-2020-12-22 15:03:30,663: %UNICON-INFO: +++ nx-osv-1 logfile initial/connection_nx-osv-1.txt +++
-
-2020-12-22 15:03:30,664: %UNICON-INFO: +++ Unicon plugin nxos +++
-Trying 172.25.192.90...
-
-
-2020-12-22 15:03:30,695: %UNICON-INFO: +++ connection to spawn: telnet 172.25.192.90 17010, id: 4634522624 +++
-
-2020-12-22 15:03:30,695: %UNICON-INFO: connection to nx-osv-1
-Won't send login name and/or authentication information.
-Connected to asg-virl-ubuntu.cisco.com.
-Escape character is '^]'.
-
-nx-osv-1# 
-
-2020-12-22 15:03:31,585: %UNICON-INFO: +++ initializing handle +++
-
-2020-12-22 15:03:31,586: %UNICON-INFO: +++ nx-osv-1: executing command 'term length 0' +++
-term length 0
-nx-osv-1# 
-
-2020-12-22 15:03:31,961: %UNICON-INFO: +++ nx-osv-1: executing command 'term width 511' +++
-term width 511
-nx-osv-1# 
-
-2020-12-22 15:03:32,537: %UNICON-INFO: +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
-terminal session-timeout 0
-nx-osv-1# 
-
-2020-12-22 15:03:33,930: %UNICON-INFO: +++ nx-osv-1: executing command 'show bgp process vrf all' +++
++++ nx-osv-1: executing command 'show bgp process vrf all' +++
 show bgp process vrf all
 
 BGP Process Information

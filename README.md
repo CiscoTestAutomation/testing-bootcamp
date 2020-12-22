@@ -52,7 +52,7 @@ device. It is a Python script which acts the same way as a device. Here's an
 example:
 
 ```
-mock_device_cli --os nxos --mock_data_dir $VIRTUAL_ENV/genie-bootcamp/mocked_devices/2-manual/initial/playback/nxos --state execute
+mock_device_cli --os nxos --mock_data_dir $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/initial/playback/nxos --state execute
 ```
 
 **Ctrl + D to get out**
