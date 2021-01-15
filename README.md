@@ -1,15 +1,21 @@
 # Welcome to pyATS testing bootcamp about executing Tests!
 
-This bootcamp is focused towards Testing scenarios and how it can help to save
-you time. It can be used for: 
+Hi There! Welcome to this pyATS bootcamp.
 
-* Sanity / Regression 
+In this bootcamp, we are assuming you have pyATS installed and went
+through the "pyATS Introduction Bootcamp".
+
+This bootcamp is focused on using pyATS and its libraries to write
+re-usable testcase, re-usable libraries which can be used for:
+
+* Sanity / Regression
 * Verify configuration has been pushed correctly on your devices
 * Verify device configuration
-* Certification testing
+* Certification testing (Verifying a new image to make sure it respond to your needs)
 * ...
 
-You can either use the .virl file provided or use the mocked devices which are provided.
+You can either use the .virl file provided or use the [mocked
+devices](mocked-device) which are provided in each section.
 
 The CML (VIRL) devices is the recommended format.
 
@@ -65,5 +71,8 @@ Mocked devices are fantastic for training purposes:
 
 They can also be used to run scripts, the script run the same way as if a real
 device was there.
+
+However they have some drawback. The actions are limited on it, it only
+supported the recorded show command and flow that was recorded.
 
 More information on [unicon documentation](https://pubhub.devnetcloud.com/media/unicon/docs/playback/index.html).
