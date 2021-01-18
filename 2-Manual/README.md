@@ -1,23 +1,27 @@
 # Manual
 
-Before starting with our automation, we can first test it on the device
-manually.
+Before starting with our automation, let's test it on the device manually.
 
 ## The Typical... Way
 
 Telnet to the device and issue these commands
 
 ```text
+Step 1.
 show bgp process vrf all
 
+Step 2.
 router bgp <bgp id>
    shutdown 
 
+Step 3.
 show bgp process vrf all
 
+Step 4.
 router bgp <bgp id>
    no shutdown 
 
+Step 5.
 show bgp process vrf all
 ```
 
@@ -48,6 +52,7 @@ As engineers, we write automated scripts for a few reasons:
 * We need to go fast!
 * We want the machine to analyze the data and tell us what has changed
 * Find bugs
+* etc
 
 We should not be looking only at the expected (typical scenario). Rather,
 also consider the surrounding aspects as well: the unexpected.
@@ -60,6 +65,8 @@ We have three snapshot here
 - Second one is the modified state with Bgp shutdown
 - Third one is the reverted state with Bgp unshut
 
+**Can you send the show command to see what has changed and verify that nothing else has changed.**
+
 ```
 # Initial
 mock_device_cli --os nxos --mock_data_dir $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/initial/playback/nxos --state execute
@@ -69,7 +76,7 @@ mock_device_cli --os nxos --mock_data_dir $VIRTUAL_ENV/testing-bootcamp/mocked_d
 mock_device_cli --os nxos --mock_data_dir $VIRTUAL_ENV/testing-bootcamp/mocked_devices/2-manual/reverted/playback/nxos --state execute
 ```
 
-Even though is a 1 line change, it still remains hard to find all the issues.
+Even though is a 1 line change, there can be many operation to verify.
 
 
 # pyATS Cli | Manual Automation way
@@ -113,10 +120,10 @@ Even though is a 1 line change, it still remains hard to find all the issues.
   pyats diff initial recovered --output recovered_diff
   ```
 
-| Note: The `--record` is only needed as we are using mocked devices
+| Note: The `--replay` is only needed as we are using mocked devices
 
 
-This way, you are being told what has changed at each step: instead of relying
+With pyATS cli, you are being told what has changed at each step: instead of relying
 on human expertise (the probablity of error) on finding the issues, you can
 make educated decisions based on the automation output instead: focus your
 attention where it matters.

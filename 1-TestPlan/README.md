@@ -1,6 +1,6 @@
 # Testplan
 
-We've just received our new test plan, it begins like this:
+We've just received our new test plan, it goes like this:
 
 ## Testcase - Shut no shut BGP 
 
@@ -19,4 +19,4 @@ We want to automate this test plan following these guidelines:
     * log useful information
 * Be able to re-use this test in combination with other test
 
-> Good design and coding practices pays off big time in the long run
+> Good design and coding practices pays off big time in the long run.
