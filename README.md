@@ -34,7 +34,7 @@ The bootcamp is divided in:
 
 [3-Automate](3-Automate/) - Automate the test plan
 
-[4-Solution](4-Solutions/) - Similar as #3 but with Tons of features
+[4-Solution](4-solutions/) - Similar as #3 but with Tons of features
 
 [5-Scripts](5-Scripts/) - Small extra scripts
 
